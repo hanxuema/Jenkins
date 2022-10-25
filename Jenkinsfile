@@ -1,11 +1,25 @@
 Jenkinsfile (Declarative Pipeline)
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'maven:3.8.6-openjdk-11-slim' } }
+    
+    agent any
+
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                echo 'build stage, step 1'
+            }
+        }
+
+         stage('Test') {
+            steps {
+                echo 'test stage, Testing..'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'deploy stage, Deploying....'
             }
         }
     }
