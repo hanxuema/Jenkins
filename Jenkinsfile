@@ -10,6 +10,11 @@ pipeline {
         }
 
          stage('Test') {
+             when {
+                 expression {
+                    BAANCH_NAME == 'main'
+                 }
+             }
             steps {
                 echo 'test stage, Testing..'
             }
